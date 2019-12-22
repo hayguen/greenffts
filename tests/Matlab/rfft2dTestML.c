@@ -35,7 +35,7 @@ int		rannum;
 	randseed = TheTime1.lo;
 #endif
 
-printf(" %6d  Byte Floats \n", sizeof(a[0]));
+printf(" %zu  Byte Floats \n", sizeof(a[0]));
 printf(" randseed = %10u\n", randseed);
 
 srand(randseed);
@@ -44,7 +44,7 @@ N = POW2(M);
 M2 = lround(LOG2(N2));
 N2 = POW2(M2);
 
-printf("fft size = %6d X%6d,  ", N2, N);
+printf("fft size = %6ld X%6ld,  ", N2, N);
 
 TheErr = 0;
 
