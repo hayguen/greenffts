@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <fp.h>
+/* #include <fp.h> */
 #include <math.h>
 #include "fftlib.h"
 #include "fftext.h"
@@ -34,7 +34,7 @@ for (isize = 0; isize < NSIZES; isize++){
 
 	N = fftSize[isize];
 	printf("rffts size = %9d  ", N);
-	M = roundtol(LOG2(N));
+	M = lround(LOG2(N));
 	TheErr = fftInit(M);
 
 	if(!TheErr){

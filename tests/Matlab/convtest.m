@@ -2,8 +2,12 @@
 clear c2
 
 % let user select file then open it
-[fname, pname] = uigetfile('*.cnv', 'select conv file');
-cd(pname);
+fname = 'convdat.cnv';
+if (!exist(fname, 'file'))
+  [fname, pname] = uigetfile('*.cnv', 'select conv file');
+  cd(pname);
+end
+
 fidout=fopen(fname,'r');
 
 % read header info
@@ -23,4 +27,11 @@ fclose(fidout);
 for i1=1:M;
 	c2(:,i1)=conv(a(:,i1),b(:,i1));
 end;
-max(max(abs(c2-c)))
+maxerr = max(max(abs(c2-c)));
+printf("======================================================\n");
+printf("convtest: maximum error from C to octave: %g\n", maxerr);
+printf("======================================================\n");
+if (maxerr >= 1E-5)
+  printf("ERROR! - see https://stackoverflow.com/questions/57940972/octave-not-returning-exit-code");
+  exit(1)
+end

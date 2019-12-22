@@ -1,3 +1,6 @@
+
+#include <math.h>
+
 /*********************
 This matrix transpose is in a seperate file because it should always be double precision.
 *********************/

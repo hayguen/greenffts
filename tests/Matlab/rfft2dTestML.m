@@ -1,8 +1,11 @@
 % program to test 2d real fft
 
 % let user select file then open it
-[fname, pname] = uigetfile('*.dr2', 'select conv file');
-cd(pname);
+fname = 'fftdat.dr2';
+if (!exist(fname, 'file'))
+  [fname, pname] = uigetfile('*.dr2', 'select conv file');
+  cd(pname);
+end
 fidout=fopen(fname,'r');
 
 % read header info
@@ -35,5 +38,11 @@ maxerr=max(maxerr,max(abs(c(1,M/2+2:M)-c2(N/2+1,2:M/2))));%f = N/2, k=1 to M/2-1
 
 % check all the other positive frequencies at all wavenumbers
 	% f from 1 to N/2-1, k from 0 to M-1 (wraps around through negative k)
-maxerr=max(maxerr,max(max(abs(c(2:N/2,:)-c2(2:N/2,:)))))
-
+maxerr=max(maxerr,max(max(abs(c(2:N/2,:)-c2(2:N/2,:)))));
+printf("======================================================\n");
+printf("rfft2dTestML: maximum error from C to octave: %g\n", maxerr);
+printf("======================================================\n");
+if (maxerr >= 1E-4)
+  printf("ERROR! - see https://stackoverflow.com/questions/57940972/octave-not-returning-exit-code");
+  exit(1)
+end

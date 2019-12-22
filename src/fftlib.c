@@ -718,8 +718,8 @@ f4i = f4i * Two - f6i;
 
 }
 
-inline void bfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt);
-inline void bfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt){
+/* inline void bfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt); */
+void bfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt){
 /***   RADIX 8 Stages	***/
 unsigned long	pos;
 unsigned long	posi;
@@ -1782,8 +1782,8 @@ f4i = f4i * Two - f6i;
 
 }
 
-inline void ibfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt);
-inline void ibfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt){
+/* inline void ibfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt); */
+void ibfstages(float *ioptr, long M, float *Utbl, long Ustride, long NDiffU, long StageCnt){
 /***   RADIX 8 Stages	***/
 unsigned long	pos;
 unsigned long	posi;

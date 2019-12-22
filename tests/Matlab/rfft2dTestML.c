@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <fp.h>
+/* #include <fp.h> */
 #include <math.h>
 #include "fftlib.h"
 #include "fftext.h"
@@ -39,9 +39,9 @@ printf(" %6d  Byte Floats \n", sizeof(a[0]));
 printf(" randseed = %10u\n", randseed);
 
 srand(randseed);
-M = roundtol(LOG2(N));
+M = lround(LOG2(N));
 N = POW2(M);
-M2 = roundtol(LOG2(N2));
+M2 = lround(LOG2(N2));
 N2 = POW2(M2);
 
 printf("fft size = %6d X%6d,  ", N2, N);

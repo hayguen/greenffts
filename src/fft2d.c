@@ -10,7 +10,7 @@
 	so you must re-init all 1d fft sizes you are going to continue using
 *******************************************************************/
 #include <stdlib.h>
-#include <fp.h>
+/* #include <fp.h> */
 #include "fftlib.h"
 #include "fftext.h"
 #include "matlib.h"
